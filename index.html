@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>共享官网</title>
+	<link rel="shortcut icon" href="images/logo.ico" /> 
+	<link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="grid/grid.css">
+	
+	<style>
+		iframe{
+			width: 800px;
+			height: 400px;
+			/*background-color: #999;*/
+			/*border:1px solid green;*/
+			overflow: scroll;
+			display:block;
+			padding-left: 30px;
+
+		}
+		#child2{
+			margin-left: 300px;
+		}
+		.mainContent{
+			width: 300px;
+			height: 300px;
+			float: right;;
+			border:1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div id="header">
+			<ul id="menu">
+				<li value="0">
+					<a href="">汽车</a>
+					
+				</li>
+				<li value="1"><a href="">单车</a></li>
+				<li value="2"><a href="">雨伞</a></li>
+				<li value="3"><a href="">充电宝</a></li>
+			</ul>
+			<div id="drop_down1"></div>
+			<div id="drop_down2"></div>
+			<div id="drop_down3"></div>
+			<div id="drop_down4"></div>
+			<img src="images/logo.png" alt="">
+		</div>
+		<div id="content">
+			<div id="stage">
+				<div id="rotate">
+					<div class="part part1"></div>
+					<div class="part part2"></div>
+					<div class="part part3"></div>
+					<div class="part part4"></div>
+					<div class="part part5"></div>
+					<div class="part part6"></div>
+				</div>
+				<span id="stage_left"><img src="images/left.png" alt=""></span>
+				<span id="stage_right"><img src="images/right.png" alt=""></span>
+			</div>
+	<div id="firstLeft">
+		<div id="left">
+			<div class="left_top">
+				<ul>
+					<li onclick='toggle(1,this)'>共享雨伞</li>
+					<li onclick='toggle(2,this)'>共享汽车</li>
+					<li onclick='toggle(3,this)'>共享自行车</li>
+					<li onclick='toggle(4,this)'>共享充电宝</li>
+				</ul>
+			</div>
+
+			<iframe src="iframes/child1.html"  align="absmiddle" frameborder="0" id='child1' data-page="iframes/child1.html" onload='childLoad(this)'></iframe>		
+		</div>
+		<div id="part3Title">
+				<h1>后台大数据管理</h1>
+				<span>全新数据管理模式</span>
+				<span>数据实时显示</span>
+				<span>多功能集成</span>
+				<span class="lastSpan">方便的数据管理</span>
+		</div>
+	</div>
+	<div id="firstRight">
+		<div id="right">
+			<div id="rightTop">
+				<h3>共享雨伞项目展示</h3>
+				<div id="rightMain">
+					<ul>
+						<li>id</li><li>地区</li><li>遗失率</li><li>损坏率</li><li>借出率</li><li>押金</li>
+					</ul>
+					<div id="bestLi">
+						<ul id='bestUl1' class='liChange2'>
+						<li>201</li><li>北京</li><li>10%</li><li>10%</li><li>60%</li><li>25</li>
+						</ul>
+						<ul id='bestUl2' class='liChange2'>
+						<li>202</li><li>上海</li><li>15%</li><li>10%</li><li>40%</li><li>35</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="rightPart2">
+			<ul>
+				<li onclick='toggle(1,this)'>共享雨伞</li>
+					<li onclick='toggle(2,this)'>共享汽车</li>
+					<li onclick='toggle(3,this)'>共享自行车</li>
+					<li onclick='toggle(4,this)'>共享充电宝</li>d
+			</ul>
+		</div>
+	</div>
+		</div>
+		<div id="footer">			
+			Copyright ©2013-2017 物联前端施工队 沪ICP备10011451号-6.
+		</div>
+	</div>
+	<script src="grid/grid.js"></script>
+	<script src="index.js"></script>
+	<script>
+		window.onscroll = function(e){
+
+			// var e =e || window.event;
+
+			var scrolltop=document.documentElement.scrollTop||document.body.scrollTop;		
+			if(scrolltop>400){
+				document.getElementById('right').className='showData';
+			}
+			if(scrolltop>1000){
+				document.getElementById('part3Title').className='part3Show';
+			}
+			// console.log(scrolltop); 
+
+			}
+	</script>
+</body>
+</html>

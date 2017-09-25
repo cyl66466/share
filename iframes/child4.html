@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../grid/grid.js"></script>
+	<link rel="stylesheet" href="../grid/grid.css">
+	<script>
+		var data=null;
+		window.onmessage=function(e){  //子页面接收数据显示
+			var msg=JSON.parse(e.data);
+
+			switch(msg.flag){
+
+			case 'show':
+
+			grid({
+				name:'共享充电宝项目统计表',
+				id:'id',  //主键
+				divId:'con4',
+				data:msg.data,
+				delHandler:del,
+				addHandler:add,
+				updateHandler:update,
+				searchHandler:search,
+				fields:[   //dialog 对话框配置
+					{name:'id',iskey:'true'},
+					{name:'电量'},
+					{name:'损坏率'},
+					{name:'款式'}
+				]
+				})
+			break;
+			case 'delcomplet':
+				alert('删除成功')
+			break;
+			case 'addcomplet':
+				alert('新增成功');
+			break;
+			case 'updatecomplet':
+				alert('修改成功');
+			break;
+			default:break;
+
+		}
+	}
+		function search(){
+
+		}
+		function del(target){
+			var msg={
+				flag:'del',
+				data:target
+			}
+			msg=JSON.stringify(msg);
+			parent.window.postMessage(msg,'*');//发送数据
+		}
+
+		function add(obj){
+			var msg={
+				flag:'add',
+				data:obj
+			}
+			msg=JSON.stringify(msg);
+			parent.window.postMessage(msg,'*');
+		}
+		function update(obj){
+			var msg={
+				flag:'update',
+				data:obj
+			}
+			msg=JSON.stringify(msg);
+			parent.window.postMessage(msg,'*');
+		}
+	</script>
+</head>
+<body>
+	<div class="data" id="con4">		
+	</div>
+</body>
+</html>

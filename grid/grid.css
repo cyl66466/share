@@ -1,0 +1,153 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+html,body{
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+div#cont{
+	position: absolute;
+	left: 0;top: 0;right: 0;right: 0;
+	margin: 0 auto;
+	width: 700px;
+	display: inline-block;
+	
+}
+table{
+	border: 1px solid skyblue;
+	border-collapse: collapse;
+
+}
+table th,table tr{
+	border: 1px solid skyblue;
+	padding: 10px 20px;
+	
+}
+table tr:nth-child(even){
+	background-color: lightblue;
+}
+table td{
+	padding: 10px 20px;
+	border: 1px solid skyblue;
+	text-align: center;
+	cursor: pointer;
+	text-align: center;
+}
+table td a{
+	text-decoration: none;
+	font-family: 微软雅黑;
+}
+table caption{
+	text-align: center;
+	font-size: 20px;
+	padding: 10px;
+	color: white;
+	background-color: skyblue;
+	font-family: 微软雅黑;
+}
+table caption a{
+	float: left;
+	text-decoration: none;
+	color: white;
+	text-align: center;
+	
+}
+table caption img#searchBtn{
+	height: 25px;
+	vertical-align: middle;
+	margin-left: 5px;
+	/*border: 1px solid red;*/
+	float: right;
+}
+table caption input#grif_search{
+	width:100px;
+	height: 20px;
+	float: right;
+}
+
+div#overlay{
+	position:absolute;
+	width:100%;height:100%;
+	left:0;top:0;
+	display:none;
+	background:rgba(0,0,0,.5);
+	perspective:800px;
+}
+div#overlay #dialog{
+	background-color:white;
+	padding:22px 60px;
+/*	width: 400px;
+	height: 400px;*/
+	position:absolute;
+	left:50%;top:50%;
+	opacity: 0;
+	transform:translateX(-50%) translateY(-50%) rotateY(-90deg);
+}
+#dialog .title{
+	position:absolute;top:0;left:0;
+	width:100%;height:60px;
+}
+#dialog .title>h1{
+	background-color:skyblue;
+	text-align:center;
+	color:white;height:100%;
+	line-height:60px;
+}
+#dialog .title>span{
+	border:1px solid white;
+	position:absolute;
+	right:10px;top:50%;
+	color:white;width:36px;
+	height:36px;border-radius:18px;
+	font-size:25px;
+	line-height:36px;
+	text-align:center;
+	transform:translateY(-50%);
+	cursor:pointer;
+}
+ul{margin-top:60px;list-style: none;}
+ul li{
+	padding-top:8px;padding-bottom:8px;}
+ul li:last-child{text-align:center;}
+#dialog label{
+	width:60px;display:inline-block;
+}
+#dialog input,#dialog select{
+	height:30px;text-indent:1em;width:200px;
+	/*border:1px solid black;*/
+}
+#dialog input.btn{
+	width:80px;
+	text-indent: 0;
+	background-color:skyblue;
+	color:white;
+}
+.show,.hide{
+	animation-duration:0.6s;
+	animation-timing-function:linear;
+	animation-fill-mode:forwards;
+}
+.show{animation-name:show;}
+.hide{animation-name:hide;}
+@keyframes show{
+	from{
+		opacity:0;
+		transform:translateX(-50%) translateY(-50%) rotateY(-90deg);
+	}
+	to{
+		opacity:1;
+		transform:translateX(-50%) translateY(-50%) rotateY(0deg);
+	}
+}
+@keyframes hide{
+	from{
+		opacity:1;
+		transform:translateX(-50%) translateY(-50%) rotateY(0deg);
+	}
+	to{
+		opacity:0;
+		transform:translateX(-50%) translateY(-50%) rotateY(-90deg);
+	}
+}
